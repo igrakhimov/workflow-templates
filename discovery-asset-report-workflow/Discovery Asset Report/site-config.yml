@@ -6,9 +6,8 @@ connection-types:  # these two are the only valid responses
   - ssh
   - telnet
 site-name: test
-multi-process: false
-ucdin: 123456789
-customer-name: FAKE COMPANY LTD PTY
+customer-name: FAKE COMPANY PTY LTD
+ucdin: "91218238123"
 devices:
   - 172.16.1.81
 scan:
@@ -16,3 +15,4 @@ scan:
   count: 3
   interval: 0.5
   batch-size: 10
+multi-process: false
