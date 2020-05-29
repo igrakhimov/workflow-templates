@@ -1,0 +1,75 @@
+{
+    "WorkflowModelId": "00000000-0000-0000-5000-000000000002",
+    "WorkspaceId": "00000000-0000-0000-5000-000000000001",
+    "Name": null,
+    "Description": null,
+    "PlannedScheduledTime": null,
+    "ProjectExternalIdentifier": null,
+    "TelstraChangeId": null,
+    "CustomerChangeId": null,
+    "Contacts": null,
+    "GraphJson": null,
+    "Elements": [
+        {
+            "ElementId": "00000000-0000-0000-5000-000000000003",
+            "ElementType": 0,
+            "Name": "Start",
+            "ElementPosition": null,
+            "AnsibleElement": null,
+            "DiscoveryElement": null,
+            "DecisionElement": null
+        },
+        {
+            "ElementId": "00000000-0000-0000-5000-000000000004",
+            "ElementType": 5,
+            "Name": "Discovery Asset Report",
+            "ElementPosition": null,
+            "AnsibleElement": null,
+            "DiscoveryElement": null,
+            "DecisionElement": null
+        },
+        {
+            "ElementId": "00000000-0000-0000-5000-000000000005",
+            "ElementType": 1,
+            "Name": "End",
+            "ElementPosition": null,
+            "AnsibleElement": null,
+            "DiscoveryElement": null,
+            "DecisionElement": null
+        }
+    ],
+    "Links": [
+        {
+            "ElementLinkId": "00000000-0000-0000-5000-000000000006",
+            "FromOutputElementId": "00000000-0000-0000-5000-000000000003",
+            "ToInputElementId": "00000000-0000-0000-5000-000000000004",
+            "ElementLinkType": 0
+        },
+        {
+            "ElementLinkId": "00000000-0000-0000-5000-000000000007",
+            "FromOutputElementId": "00000000-0000-0000-5000-000000000004",
+            "ToInputElementId": "00000000-0000-0000-5000-000000000005",
+            "ElementLinkType": 1
+        }
+    ],
+    "IsValid": true,
+    "ValidationErrors": [],
+    "TemplateName": "Discovery Asset Report Workflow",
+    "TemplateReleaseDateVersion": "2020/02/10",
+    "TemplateId": "00000000-0000-0000-5000-000000000000",
+    "ElementTypes": 1,
+    "CreatedById": null,
+    "CreatedDateTime": "0001-01-01T00:00:00",
+    "ModifiedById": null,
+    "ModifiedDateTime": null,
+    "VarsPromptDefinitions": [],
+    "VarsSettableTypesAndValues": [],
+    "NonSettableDictionaryAndListItems": [],
+    "FileValidationErrors": [],
+    "InventoryFileId": null,
+    "VerboseOutput": false,
+    "LastExecutionId": null,
+    "LastExecutionDateTime": null,
+    "LastExecutionById": null,
+    "CollapseIdenticalVarsPrompt": true
+}

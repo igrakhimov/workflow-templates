@@ -1,0 +1,31 @@
+ios:
+    os-list:
+        - ios
+        - ios_xr
+    commands:
+        - show interfaces
+        - show version
+        - show running-config
+        - show inventory
+        - show interfaces description
+        - show idprom interface $interfaces
+nxos:
+    os-list:
+        - nxos
+    commands:
+        - show version
+        - show running-config
+        - show inventory
+asa:
+    os-list:
+        - asa
+    commands:
+        - show interface
+        - show running-config
+junos:
+    os-list:
+        - junos
+    commands:
+        - show interfaces
+        - show version
+        - show config

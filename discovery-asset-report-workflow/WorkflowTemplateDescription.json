@@ -1,0 +1,16 @@
+{"TemplateId":"00000000-0000-0000-5000-000000000000",
+"TemplateName":"Discovery Asset Report Workflow",
+"Description":"A complete workflow for discovery asset report",
+"TemplateType":1,
+"ElementTypes":1,
+"TemplateAuthor":"Rapid Team",
+"ReleaseDateVersion":"2020/02/10",
+"TemplateFolderPath":"will be set at run time",
+"IsDevTestEnvironmentsOnly":false,
+"UsageCount":0,
+"ExecuteCount":0,
+"TemplateVersion": "V1",
+"TemplateOwner": "tester",
+"TemplateModifiedBy": "tester",
+"TemplateModifiedDate": "05/19/2020 11:15:47"
+}

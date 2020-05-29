@@ -1,0 +1,18 @@
+{
+  "TemplateId": "00000000-0000-0000-4000-000000000000",
+  "TemplateName": "Demo Variable Template",
+  "Description": "A workspace demonstrating the use of variables via set_stats and #settable vars.",
+  "TemplateType": 1,
+  "TemplateAuthor": "Rapid Team",
+  "ReleaseDateVersion": "2019/24/01",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/demo-variable-template/",
+  "IsDevTestEnvironmentsOnly": false,
+  "UsageCount": 0,
+  "ExecuteCount": 0,
+  "IsPromoted": false,
+  "TemplateVersion": "V1",
+  "TemplateOwner": "tester",
+  "IsFavourite": false,
+  "TemplateModifiedBy": "tester",
+  "TemplateModifiedDate": "05/19/2020 11:15:47"
+}

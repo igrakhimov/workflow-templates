@@ -1,0 +1,18 @@
+domain-include: virl.info
+ignore-invalid-commands: true
+crawl: true
+auth-break: false
+connection-types:  # these two are the only valid responses
+  - ssh
+  - telnet
+site-name: test
+multi-process: false
+ucdin: 123456789
+customer-name: FAKE COMPANY LTD PTY
+devices:
+  - 172.16.1.81
+scan:
+  timeout: 3
+  count: 3
+  interval: 0.5
+  batch-size: 10
