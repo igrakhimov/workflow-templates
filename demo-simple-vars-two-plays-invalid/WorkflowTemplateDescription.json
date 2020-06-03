@@ -4,7 +4,7 @@
   "Description": "A workflow that contains vars and settables.",
   "TemplateType": 1,
   "TemplateAuthor": "Rapid Team",
-  "ReleaseDateVersion": "25/05/2020 01:50:25",
+  "ReleaseDateVersion": "06/03/2020 01:02:18",
   "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/demo-simple-vars-two-plays-invalid/",
   "IsDevTestEnvironmentsOnly": true,
   "UsageCount": 4,
@@ -14,5 +14,5 @@
   "TemplateOwner": "tester",
   "IsFavourite": false,
   "TemplateModifiedBy": "tester",
-  "TemplateModifiedDate": "25/05/2020 01:50:25"
+  "TemplateModifiedDate": "06/03/2020 01:02:18"
 }

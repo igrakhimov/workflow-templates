@@ -4,7 +4,7 @@
 "TemplateType":1,
 "ElementTypes":1,
 "TemplateAuthor":"Rapid Team",
-"ReleaseDateVersion":"25/05/2020 01:50:25",
+"ReleaseDateVersion":"06/03/2020 01:02:18",
 "TemplateFolderPath":"will be set at run time",
 "IsDevTestEnvironmentsOnly":false,
 "UsageCount":0,
@@ -12,5 +12,5 @@
 "TemplateVersion": "V1",
 "TemplateOwner": "tester",
 "TemplateModifiedBy": "tester",
-"TemplateModifiedDate": "25/05/2020 01:50:25"
+"TemplateModifiedDate": "06/03/2020 01:02:18"
 }

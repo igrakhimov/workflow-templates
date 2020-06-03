@@ -4,7 +4,7 @@
   "Description": "A workspace demonstrating the use of variables via set_stats and #settable vars.",
   "TemplateType": 1,
   "TemplateAuthor": "Rapid Team",
-  "ReleaseDateVersion": "25/05/2020 01:50:25",
+  "ReleaseDateVersion": "06/03/2020 01:02:18",
   "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/demo-variable-template/",
   "IsDevTestEnvironmentsOnly": false,
   "UsageCount": 0,
@@ -14,5 +14,5 @@
   "TemplateOwner": "tester",
   "IsFavourite": false,
   "TemplateModifiedBy": "tester",
-  "TemplateModifiedDate": "25/05/2020 01:50:25"
+  "TemplateModifiedDate": "06/03/2020 01:02:18"
 }
