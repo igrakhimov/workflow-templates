@@ -5,7 +5,7 @@
   "TemplateType": 1,
   "TemplateAuthor": "abitha",
   "ReleaseDateVersion": "06/04/2020 08:09:32",
-  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/template-test",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/template-test/",
   "IsDevTestEnvironmentsOnly": true,
   "UsageCount": 0,
   "ExecuteCount": 0,
