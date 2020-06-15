@@ -1,0 +1,18 @@
+{
+  "TemplateId": "db520f9e-5873-4a49-a786-90b508b8d327",
+  "TemplateName": "check var prompt",
+  "Description": "1",
+  "TemplateType": 1,
+  "TemplateAuthor": "abdul",
+  "ReleaseDateVersion": "06/15/2020 05:21:08",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/check-var-prompt",
+  "IsDevTestEnvironmentsOnly": true,
+  "UsageCount": 0,
+  "ExecuteCount": 0,
+  "IsPromoted": false,
+  "TemplateVersion": "1",
+  "TemplateOwner": "abdul",
+  "IsFavourite": false,
+  "TemplateModifiedBy": "abdul",
+  "TemplateModifiedDate": "06/15/2020 05:21:08"
+}
