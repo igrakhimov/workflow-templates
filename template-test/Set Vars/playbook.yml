@@ -1,5 +1,5 @@
 ---
-- name: Playbook that create global variables that can be used by other playbooks in the workflow
+- name: Playbook that 1create global variables that can be used by other playbooks in the workflow
   hosts: localhost
   gather_facts: no
   connection: local
