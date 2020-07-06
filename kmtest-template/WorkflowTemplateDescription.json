@@ -7,7 +7,7 @@
   "ReleaseDateVersion": "06/05/2020 05:48:05",
   "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/kmtest-template",
   "IsDevTestEnvironmentsOnly": true,
-  "UsageCount": 0,
+  "UsageCount": 1,
   "ExecuteCount": 0,
   "IsPromoted": false,
   "TemplateVersion": "2",
