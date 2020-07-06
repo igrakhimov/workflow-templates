@@ -9,7 +9,7 @@
   #==================================================================================
   # 1. exposes the variable to UI allowing the user to override the value at run time
   # 2. imports the value from the global variable pool by using jinja syntax i.e.. "{{ var_path }}"
-  # 3. all settable variables are passed into the playbook as extra_vars and the usual rules apply
+  # 3. all settable variables are passed into the playbook as extra_vars and the usual rules apply edited
 
   vars:
     new_string: "{{set_vars.var.var_string}}" #settable
