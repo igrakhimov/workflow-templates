@@ -1,0 +1,19 @@
+{
+  "TemplateId": "721b7566-c138-481f-aee3-1c124fc0cd91",
+  "TemplateName": "KM Test",
+  "Description": "Test",
+  "TemplateType": 1,
+  "TemplateAuthor": "kidmun",
+  "ReleaseDateVersion": "07/10/2020 00:58:11",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/km-test",
+  "IsDevTestEnvironmentsOnly": true,
+  "UsageCount": 0,
+  "ExecuteCount": 0,
+  "IsPromoted": false,
+  "TemplateVersion": "1",
+  "TemplateOwner": "kidmun",
+  "IsFavourite": false,
+  "TemplateModifiedBy": "kidmun",
+  "TemplateModifiedDate": "07/10/2020 00:58:11",
+  "TemplateTypeColor": "AnsibleElements"
+}
