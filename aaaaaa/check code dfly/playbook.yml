@@ -1,0 +1,95 @@
+- hosts: localhost
+  gather_facts: yes
+  connection: local
+  
+  vars:
+   roles_msg: ''
+   modules_msg: ''
+   expected_modules:
+        - reportlab 
+        - infoblox-client 
+        - textfsm 
+        - jxmlease 
+        - junos-eznc 
+        - pysnow 
+        - pyats 
+        - orionsdk 
+        - pandevice
+        - arrow 
+        - Cerberus 
+        - exscript 
+        - numpy 
+        - beautifulsoup4 
+        - chromedriver-binary 
+        - cryptography 
+        - pan-python
+        - genie 
+        - jsonpickle 
+        - matplotlib 
+        - openpyxl 
+        - pyats 
+        - pysnow 
+        - reportlab 
+        - ruamel.yaml 
+        - Scrapy 
+        - selenium 
+        - xmltodict
+   
+   expected_roles:
+        - ansible-pyats
+        - clay584.parse_genie
+
+      
+  
+  tasks:
+  
+    
+     - name: List of releases in ascendent order  
+       command: ls -v /etc/ansible/roles
+       register: roles
+
+
+
+     - name: find missing roles
+       set_fact:
+        missing_roles: |-
+              {%  set expected_lower = expected_roles | map('lower') | list  -%}
+              {%  set installed_roles_lower = roles.stdout_lines | map('lower') | list  -%}
+              {%  set installed = installed_roles_lower | intersect(expected_lower) -%}
+              {%  set missing_roles = expected_lower | difference(installed) -%}
+              {{ missing_roles }}
+       
+     
+     - set_fact:
+        roles_msg:  The following roles are missing "{{ missing_roles }}"
+       when:  missing_roles | length > 0 
+
+
+     - name: get pip info   
+       pip_package_info:
+          clients: [ pip3 ]
+       register: pip_info 
+  
+
+     - name: find missing python modules
+       set_fact:
+         missing_modules: |-
+                      {%  set expected_lower = expected_modules | map('lower') | list  -%}
+                      {%  set pip_modules_lower =  pip_info.packages.pip3.keys() | map('lower')  | list -%} 
+                      {%  set installed = pip_modules_lower | intersect(expected_lower)  -%}
+                      {%  set missing_modules = expected_lower | difference(installed) -%}
+                      {{ missing_modules }}
+     
+
+     - set_fact:
+          modules_msg: The following modules are missing "{{ missing_modules }}"
+       when:  missing_modules | length > 0 
+     
+     - fail:
+          msg:  
+             - "Something went wrong."  
+             - " {{ modules_msg }}"
+       when: ( missing_modules | length > 0 ) or ( missing_roles | length > 0 )
+
+     
+
