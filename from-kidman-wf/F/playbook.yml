@@ -1,8 +1,0 @@
-- name: failed host
-  hosts: all
-  gather_facts: no
-
-  tasks:
-    
-    - debug:
-        msg: "Failed on {{ inventory_hostname }}"
