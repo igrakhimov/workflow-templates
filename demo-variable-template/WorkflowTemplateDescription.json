@@ -7,7 +7,7 @@
   "ReleaseDateVersion": "06/03/2020 01:02:18",
   "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/demo-variable-template/",
   "IsDevTestEnvironmentsOnly": false,
-  "UsageCount": 1,
+  "UsageCount": 2,
   "ExecuteCount": 0,
   "IsPromoted": false,
   "TemplateVersion": "V1",
@@ -15,5 +15,6 @@
   "IsFavourite": false,
   "TemplateModifiedBy": "tester",
   "TemplateModifiedDate": "06/03/2020 01:02:18",
-  "TemplateTypeColor": "AnsibleElements"
+  "TemplateTypeColor": "AnsibleElements",
+  "TemplateIconPath": null
 }
