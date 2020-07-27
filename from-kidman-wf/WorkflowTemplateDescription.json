@@ -1,11 +1,11 @@
 {
   "TemplateId": "e5945aff-05ab-40a0-bd22-a0e2e4257313",
-  "TemplateName": "from kidman",
+  "TemplateName": "from kidman WF",
   "Description": "Test",
   "TemplateType": 1,
   "TemplateAuthor": "igor",
   "ReleaseDateVersion": "07/27/2020 09:56:39",
-  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/from-kidman",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/from-kidman-wf",
   "IsDevTestEnvironmentsOnly": true,
   "UsageCount": 1,
   "ExecuteCount": 0,
@@ -14,7 +14,7 @@
   "TemplateOwner": "igor",
   "IsFavourite": false,
   "TemplateModifiedBy": "igor",
-  "TemplateModifiedDate": "07/27/2020 09:56:39",
+  "TemplateModifiedDate": "07/27/2020 10:10:35",
   "TemplateTypeColor": "AnsibleElements",
   "TemplateIconPath": null
 }
