@@ -1,7 +1,7 @@
 {
   "TemplateId": "d838a66b-967f-4ac7-b271-a0cdd0ad75fa",
   "TemplateName": "to delete",
-  "Description": "test",
+  "Description": "test edited",
   "TemplateType": 1,
   "TemplateAuthor": "igor",
   "ReleaseDateVersion": "07/30/2020 06:58:21",
@@ -14,7 +14,7 @@
   "TemplateOwner": "igor",
   "IsFavourite": false,
   "TemplateModifiedBy": "igor",
-  "TemplateModifiedDate": "07/30/2020 06:58:21",
+  "TemplateModifiedDate": "07/30/2020 06:59:08",
   "TemplateTypeColor": "AnsibleElements",
   "TemplateIconPath": null
 }
