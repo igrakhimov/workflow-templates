@@ -1,0 +1,35 @@
+---
+- name: "Download Docker repo"
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker.repo
+    mode: 0440
+    validate_certs: no
+
+- name: Install Container SE Linux
+  yum:
+    name: container-selinux
+    state: present
+
+- name: Install Docker version 19.0+
+  yum:
+    name: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-19.03.2-3.el7.x86_64.rpm
+    state: present
+
+- name: Install Docker Compose
+  yum:
+    name: docker-compose
+    state: present
+
+- name: "Ensure /etc/docker exists"
+  file:
+    path: /etc/docker
+    recurse: yes
+    state: directory
+    mode: 0755
+
+- name: "Update docker daemon.json"
+  copy:
+    src: docker/daemon.json
+    dest: /etc/docker/daemon.json
+    mode: 0644

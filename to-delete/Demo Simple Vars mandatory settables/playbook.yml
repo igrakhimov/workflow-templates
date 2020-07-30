@@ -1,0 +1,72 @@
+# Valid Playbook with mandatory fields - From Ansible Playbook Demonstration
+# 01/11/2019 MG
+- name: Our first play
+  hosts: ios 
+  gather_facts: no
+  connection: network_cli
+
+  vars_prompt:
+    - name: 'ansible_user'
+      prompt: 'Enter username'
+      default: 'cisco'
+      private: false
+
+    - name: 'ansible_password'
+      prompt: 'Enter password'
+      default: 'cisco'
+      private: true
+      unsafe: true
+
+  vars:
+      ios_cmd: 'show ip interface brief' #settable
+      settable_null_mandatory: None #settable
+      settable_empty_mandatory: '' #settable
+      ios_cmd_mandatory: None #settable
+      backup_path: 'data'    #we don't expect/want someone using this playbook to change this
+      num_settable: 23.4 #settable
+
+  tasks:
+
+    - import_role:
+       name: clay584.parse_genie
+
+    - name: configurable backup path
+      ios_config:
+           backup: yes
+           backup_options:
+             dir_path: "{{ backup_path }}"  
+
+    - name: execute our ios cmd 
+      ios_command:
+        commands:
+          - "{{ ios_cmd }}" 
+      register: my_output  
+
+    - name: extract our data 
+      set_fact:
+        ip_int_brief: |-
+          {{ my_output.stdout[0] | parse_genie(command= ios_cmd, os="ios") }}
+
+    #- pause:
+    #    minutes: 5
+
+    - name: display data 
+      debug:
+        msg: "{{ ip_int_brief }}" 
+
+    - name: make data available to rest of flow
+      set_stats:
+           data:
+             num_settable: 99.9 # should be returned?
+             show_ip_int : "{{ ip_int_brief }}"
+             int_stat: 42 
+             float_stat: 4.2
+             true_stat: true
+             teapot_string_stat: '42'
+             list_stat:
+                     - 'hello'
+                     - 'world'
+                     - 'me'
+                     - 'tired'
+           aggregate: no
+

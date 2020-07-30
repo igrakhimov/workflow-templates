@@ -1,0 +1,48 @@
+- name: Create and Incident in snow  
+  hosts: localhost  
+  gather_facts: false 
+  #module_defaults:
+  #  ios_facts:
+  #    gather_subset: all  
+  #    gather_network_resources: all 
+  connection: network_cli
+
+  vars_prompt:
+
+    - name: 'sn_username'
+      prompt: 'Enter ServiceNow username'
+      default: 'admin'
+      private: false
+      unsafe: true
+
+    - name: 'sn_password'
+      prompt: 'Enter ServiceNow password'
+      default: 'rybkin-zYrje0-wapziv'
+      private: true
+      unsafe: true
+
+  vars:
+     sn_instance: dev75689  #settable
+     incident_number: "INC0010002" #settable
+  
+
+  tasks:
+
+  - name: Find open standard changes with my template
+    snow_record_find:
+      table: incident   
+      username: "{{ sn_username }}"
+      password: "{{ sn_password }}"
+      instance: "{{ sn_instance }}"
+      query:
+           number: "{{ incident_number  }}" 
+    delegate_to: localhost
+    register: incident  
+    when: incident_number | length > 0
+
+  - name: return incident   
+    set_stats:
+         data:
+            incident_record: "{{ incident.record }}"
+    when: incident_number | length > 0
+

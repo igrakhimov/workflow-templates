@@ -1,0 +1,112 @@
+#Ansible template demo'ing the ability to load devices into Infoblox.  BBLLLLAAAAAAAA
+#The inventory file should provide the following variable information. This could be obtained dynamically via an inventory script or pulled from the device if available
+#location - device location
+#contact - device contact
+#description - device description  
+
+- name: Load Devices into Infoblox 
+  hosts: ios  
+  gather_facts: false 
+  connection: network_cli
+  roles:
+    - clay584.parse_genie 
+
+  vars_prompt:
+    - name: 'ansible_user'
+      prompt: 'Enter device username'
+      default: 'cisco'
+      private: false
+      unsafe: true
+
+    - name: 'ansible_password'
+      prompt: 'Enter device password'
+      default: 'cisco'    
+      private: true
+      unsafe: true
+
+    - name: 'ansible_become_pass'
+      prompt: 'Enter device priv password'
+      default: 'cisco'    
+      private: true
+      unsafe: true
+
+    - name: 'infoblox_username' 
+      prompt: 'Enter Infoblox username'
+      default: 'admin'
+      private: false
+      unsafe: true
+
+    - name: 'infoblox_password'
+      prompt: 'Enter Infoblox password'
+      default: 'infoblox'    
+      private: true
+      unsafe: true
+
+  vars:
+     infoblox_host: 10.47.69.137 #settable
+     infoblox:
+           host: "{{ infoblox_host }}"
+           username: "{{ infoblox_username }}" 
+           password: "{{ infoblox_password }}"
+  
+  tasks:
+
+  - name: get additional information from Cisco IOS device 
+    ios_command:
+      commands:
+          - show version
+    register: version
+    when: ansible_network_os == 'ios'
+
+  - name: Set Fact Genie Filter
+    set_fact:
+      pyats_version: "{{ version['stdout'][0] | parse_genie(command='show version', os='ios') }}"
+    when: ansible_network_os == 'ios'
+
+  - name: configure an ipv4 host record
+    nios_host_record:
+        name: "{{ inventory_hostname }}"
+        ipv4:
+          - address: "{{ hostvars[inventory_hostname]['ipv4'] }}"   
+        state: present
+        extattrs:
+            Device Location: "{{ hostvars[inventory_hostname]['location'] }}"   
+            Device Contact: "{{ hostvars[inventory_hostname]['contact'] }}"   
+            Device Model: "{{ pyats_version.version.platform }}"
+            Serial Number: "{{ pyats_version.version.chassis_sn }}"
+            Software Version: "{{ pyats_version.version.version }}"
+        comment: "{{ hostvars[inventory_hostname]['description'] }}"   
+        provider: '{{ infoblox }}'
+    delegate_to: localhost
+    when: ansible_network_os == 'ios'
+
+
+  - name: get additional information from Cisco ASA 
+    asa_command:
+      commands:
+          - show inventory
+    register: version
+    when: ansible_network_os == 'asa'
+
+  - name: Set Fact Genie Filter
+    set_fact:
+      pyats_version: "{{ version['stdout'][0] | parse_genie(command='show inventory', os='asa') }}"
+    when: ansible_network_os == 'asa'
+
+
+  - name: configure a Cisco ASA ipv4 host record
+    nios_host_record:
+        name: "{{ inventory_hostname }}"
+        ipv4:
+          - address: "{{ hostvars[inventory_hostname]['ipv4'] }}"   
+        state: present
+        extattrs:
+            Device Location: "{{ hostvars[inventory_hostname]['location'] }}"   
+            Device Contact: "{{ hostvars[inventory_hostname]['contact'] }}"   
+            Device Model:  "{{ pyats_version.Chassis.pid }}"
+            Serial Number: "{{ pyats_version.Chassis.sn }}"
+            Software Version: "{{ pyats_version.Chassis.vid }}"
+        comment: "{{ hostvars[inventory_hostname]['description'] }}"   
+        provider: '{{ infoblox }}'
+    delegate_to: localhost
+    when: ansible_network_os == 'asa'

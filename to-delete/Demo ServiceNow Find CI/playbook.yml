@@ -1,0 +1,48 @@
+- name: Finds a Service Now CI 
+  hosts: localhost  
+  gather_facts: false 
+  #module_defaults:
+  #  ios_facts:
+  #    gather_subset: all  
+  #    gather_network_resources: all 
+  connection: network_cli
+
+  vars_prompt:
+
+    - name: 'sn_username'
+      prompt: 'Enter ServiceNow username'
+      default: 'admin'
+      private: false
+      unsafe: true
+
+    - name: 'sn_password'
+      prompt: 'Enter ServiceNow password'
+      default: 'rybkin-zYrje0-wapziv'
+      private: true
+      unsafe: true
+
+  vars:
+     sn_instance: dev75689  #settable
+     ci_name: "sydney.guest.cml" #settable
+  
+
+  tasks:
+
+  - name: Find open standard changes with my template
+    snow_record_find:
+      table: cmdb_ci_ip_router 
+      username: "{{ sn_username }}"
+      password: "{{ sn_password }}"
+      instance: "{{ sn_instance }}"
+      query:
+           name: "{{ ci_name }}" 
+    delegate_to: localhost
+    register: ci 
+    when: ci_name | length > 0
+
+  - name: return change request  
+    set_stats:
+         data:
+            config_item: "{{ ci.record }}"
+    when: ci_name | length > 0
+

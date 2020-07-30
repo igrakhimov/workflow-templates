@@ -1,0 +1,89 @@
+- name: Load Devices into Solarwinds 
+  hosts: all  
+  gather_facts: false 
+  connection: network_cli
+
+  vars_prompt:
+    - name: 'ansible_user'
+      prompt: 'Enter Network Device Username'
+      default: 'cisco'
+      private: false
+      unsafe: true
+
+    - name: 'ansible_password'
+      prompt: 'Enter Network Device password'
+      default: 'cisco'    
+      private: true
+      unsafe: true
+
+    - name: 'ansible_become_pass'
+      prompt: 'Enter Network Device Priv password'
+      default: 'cisco'    
+      private: true
+      unsafe: true
+
+    - name: 'username'
+      prompt: 'Enter NCM Username'
+      default: 'admin'
+      private: false
+      unsafe: true
+
+    - name: 'password'
+      prompt: 'Enter NCM password'
+      default: 'password'    
+      private: true
+      unsafe: true
+
+    - name: 'ro_community'
+      prompt: 'Enter Read Only Community String'
+      default: 'public'    
+      private: true
+      unsafe: true
+
+    - name: 'rw_community'
+      prompt: 'Enter Read Write Community String'
+      default: 'private'    
+      private: true
+      unsafe: true
+
+
+  vars:
+     sw_hostname: 10.47.70.107 #settable 
+
+  tasks:
+
+  - name: Add device to Solarwinds  
+    orion_node:
+        hostname: "{{ sw_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        name: "{{ inventory_hostname }}" 
+        ip_address: "{{ hostvars[inventory_hostname]['ipv4'] }}" 
+        ro_community_string: "{{ ro_community }}"
+        rw_community_string: "{{ rw_community }}"
+    register: result  
+    delegate_to: localhost
+
+# Add SNMP Manager for IOS devices
+  - name: Add new SNMP manager configuration to IOS device
+    ios_config:
+        lines:
+          - snmp-server community  {{ rw_community }} RW
+          - snmp-server community  {{ ro_community }} RO
+          - snmp-server host {{ sw_hostname }} version 2c {{ ro_community }}
+          - snmp-server location {{ hostvars[inventory_hostname]['location'] }} 
+          - snmp-server contact {{ hostvars[inventory_hostname]['contact'] }} 
+        match: exact
+        save_when: modified
+    when: result.changed and ansible_network_os == "ios"  
+
+# Add SNMP Manager for ASA  devices
+  - name: Add new SNMP manager configuration to Cisco ASA
+    asa_config:
+       lines:
+           - snmp-server community  {{ ro_community }} 
+           - snmp-server host management {{ sw_hostname }} community {{ ro_community }}
+           - snmp-server location {{ hostvars[inventory_hostname]['location'] }} 
+           - snmp-server contact {{ hostvars[inventory_hostname]['contact'] }} 
+    when: result.changed and ansible_network_os == "asa"  
+
