@@ -1,0 +1,20 @@
+{
+  "TemplateId": "51dbe1a6-10a8-40d1-a1eb-bf1ebd3dc305",
+  "TemplateName": "to delete",
+  "Description": "bla",
+  "TemplateType": 1,
+  "TemplateAuthor": "igor",
+  "ReleaseDateVersion": "07/30/2020 06:56:32",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/to-delete",
+  "IsDevTestEnvironmentsOnly": true,
+  "UsageCount": 0,
+  "ExecuteCount": 0,
+  "IsPromoted": false,
+  "TemplateVersion": "v1",
+  "TemplateOwner": "igor",
+  "IsFavourite": false,
+  "TemplateModifiedBy": "igor",
+  "TemplateModifiedDate": "07/30/2020 06:56:32",
+  "TemplateTypeColor": "DiscoveryAnsibleElements",
+  "TemplateIconPath": null
+}

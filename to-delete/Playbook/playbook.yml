@@ -1,0 +1,27 @@
+- name: test
+  hosts: all
+  become: yes
+  gather_facts: no
+
+# REMOVE EVERYTHING BETWEEN THIS...
+  vars_prompt:
+    - name: 'username'
+      prompt: 'Enter username'
+      default: 'cisco'
+      private: false
+
+    - name: 'password'
+      prompt: 'Enter password'
+      default: 'cisco'
+      private: true
+# AND THIS IF USING IN AWX or TOWER
+
+  vars:
+      ansible_user: '{{ username }}'        # REMOVE IF USING AWX or TOWER
+      ansible_password: '{{ password }}'    # REMOVE IF USING AWX or TOWER
+      ansible_become_password: '{{ password }}'
+
+  tasks:
+
+    - name:
+      ping:
