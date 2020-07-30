@@ -1,4 +1,0 @@
----
-docker_version: "{{ lookup('env', 'INPUT_DOCKER_VERSION')|default('18.04',true ) }}"
-swapfile_location: "/var/swap.space"
-swapfile_size: 4096
