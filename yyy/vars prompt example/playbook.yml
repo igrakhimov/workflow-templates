@@ -1,0 +1,29 @@
+---
+# Playbook demonstrating the state capture and state compare roles
+
+- name: start demonstration
+  hosts: localhost
+  gather_facts: no
+  connection: network_cli
+
+  vars_prompt:
+    - name: 'ansible_user'
+      prompt: 'Enter SSH username'
+      private: false
+
+    - name: 'ansible_password'
+      prompt: 'Enter SSH password'
+      private: true
+      unsafe: true
+
+    - name: 'ansible_become_pass'
+      prompt: 'Enter IOS enable password'
+      private: true
+      unsafe: true
+
+  tasks:
+
+  # changes to execute before any state information is captured
+  - name: show msg
+    debug:
+      msg: "hi"
