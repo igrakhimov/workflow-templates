@@ -1,0 +1,14 @@
+---
+- name: show which host failed 2
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+  - name: show failed hosts
+    debug:
+      msg: "{{inventory_hostname}}"
+
+
+...

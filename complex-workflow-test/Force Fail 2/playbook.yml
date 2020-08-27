@@ -1,0 +1,19 @@
+---
+
+- name: force fail 2
+  hosts: all
+  gather_facts: no
+  connection: local
+  any_errors_fatal: yes
+
+  vars:
+    fail_on: 'router5' #settable
+
+  tasks:
+
+  - name: simulating a failure on selected hosts
+    fail:
+      msg: "deliberately failing on {{ fail_on }}"
+    when: fail_on in inventory_hostname
+
+...

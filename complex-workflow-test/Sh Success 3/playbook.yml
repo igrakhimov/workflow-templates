@@ -1,0 +1,14 @@
+---
+- name: show only successful host 2
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+  - name: show success hosts
+    debug:
+      msg: "{{inventory_hostname}}"
+
+
+...
