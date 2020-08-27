@@ -5,7 +5,7 @@
   "TemplateType": 1,
   "TemplateAuthor": "abitha",
   "ReleaseDateVersion": "08/27/2020 05:28:46",
-  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/complex-workflow-test",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/complex-workflow-test/",
   "IsDevTestEnvironmentsOnly": true,
   "UsageCount": 0,
   "ExecuteCount": 0,
@@ -14,7 +14,7 @@
   "TemplateOwner": "abitha",
   "IsFavourite": false,
   "TemplateModifiedBy": "abitha",
-  "TemplateModifiedDate": "08/27/2020 05:28:46",
+  "TemplateModifiedDate": "08/27/2020 05:29:12",
   "TemplateTypeColor": "AnsibleElements",
   "TemplateIconPath": null
 }
