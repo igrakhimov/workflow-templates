@@ -1,0 +1,20 @@
+{
+  "TemplateId": "90146021-f430-4c2a-9eed-9ac77b1361db",
+  "TemplateName": "Standup VPC",
+  "Description": "sss",
+  "TemplateType": 1,
+  "TemplateAuthor": "marcos",
+  "ReleaseDateVersion": "11/10/2020 23:22:40",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/standup-vpc",
+  "IsDevTestEnvironmentsOnly": true,
+  "UsageCount": 0,
+  "ExecuteCount": 0,
+  "IsPromoted": false,
+  "TemplateVersion": "1",
+  "TemplateOwner": "marcos",
+  "IsFavourite": false,
+  "TemplateModifiedBy": "marcos",
+  "TemplateModifiedDate": "11/10/2020 23:22:40",
+  "TemplateTypeColor": "AnsibleElements",
+  "TemplateIconPath": null
+}
