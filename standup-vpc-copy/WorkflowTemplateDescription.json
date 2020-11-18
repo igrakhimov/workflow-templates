@@ -1,11 +1,11 @@
 {
-  "TemplateId": "90146021-f430-4c2a-9eed-9ac77b1361db",
+  "TemplateId": "a9797628-70b2-4cdf-ad66-33118784f606",
   "TemplateName": "Standup VP copy",
   "Description": "sss",
   "TemplateType": 1,
   "TemplateAuthor": "marcos",
   "ReleaseDateVersion": "11/10/2020 23:22:40",
-  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/standup-vpc",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/standup-vpc-copy",
   "IsDevTestEnvironmentsOnly": true,
   "UsageCount": 0,
   "ExecuteCount": 0,
