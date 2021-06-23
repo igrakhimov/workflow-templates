@@ -1,0 +1,21 @@
+{
+  "TemplateId": "29a09b2c-1d5c-4c9e-881b-e4ce39151096",
+  "TemplateName": "cvp",
+  "Description": "xcv",
+  "TemplateType": 1,
+  "TemplateAuthor": "abitha",
+  "ReleaseDateVersion": "06/23/2021 05:03:38",
+  "TemplateFolderPath": "/tmp/rapid/repo/workflow-templates/cvp",
+  "IsDevTestEnvironmentsOnly": true,
+  "UsageCount": 0,
+  "IsPromoted": false,
+  "TemplateVersion": "cxv",
+  "TemplateOwner": "abitha",
+  "IsFavourite": false,
+  "TemplateModifiedBy": "abitha",
+  "TemplateModifiedDate": "06/23/2021 05:03:38",
+  "TemplateTypeColor": "AnsibleElements",
+  "TemplateIconPath": null,
+  "UseLocalZone": false,
+  "IsGlobal": true
+}

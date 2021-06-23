@@ -1,0 +1,31 @@
+---
+- name: Reset the lab network in preparation for the demo
+  hosts: localhost
+  gather_facts: no
+  connection: local
+
+  vars_prompt:
+    - name: 'ansible_user'
+      prompt: 'Enter SSH username'
+      private: false
+      default: 'satelite'
+
+    - name: 'ansible_password'
+      prompt: 'Enter SSH password'
+      private: true
+      unsafe: true
+      default: 'cisco'
+
+    # - name: 'ansible_become_pass'
+    #   prompt: 'Enter IOS enable password'
+    #   private: true
+    #   unsafe: true
+    #   default: 'cisco'
+
+  vars:
+    interface_to_reset: None #settable
+
+  tasks:
+  - name: show info
+    debug:
+      msg: "{{ansible_user}}"
